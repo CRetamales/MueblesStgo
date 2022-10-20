@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity(name = "justification")
-@Table(name = "justification", uniqueConstraints = @UniqueConstraint(columnNames = "rut"))
+@Table(name = "justification")
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
 public class Justification {
 
