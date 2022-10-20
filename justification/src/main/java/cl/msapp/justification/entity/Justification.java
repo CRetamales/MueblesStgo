@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity(name = "justification")
 @Table(name = "justification", uniqueConstraints = @UniqueConstraint(columnNames = "rut"))
@@ -28,5 +29,6 @@ public class Justification {
     private String category;
 
     @Column(name = "created_at", nullable = false)
-    private String created_at;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date created_at;
 }

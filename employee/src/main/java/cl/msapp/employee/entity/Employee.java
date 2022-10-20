@@ -25,15 +25,15 @@ public class Employee {
     private String names;
 
     @Column(name = "last_names", nullable = false)
-    private String last_names;
+    private String lastNames;
 
     @Column(name = "born_date", nullable = false)
-    private String born_date;
+    private String bornDate;
 
     @Column(name = "category", nullable = false)
     private String category;
 
     @Column(name = "entry_date", nullable = false)
-    private String entry_date;
+    private String entryDate;
 
 }
