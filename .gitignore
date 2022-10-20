@@ -1,0 +1,11 @@
+# Ignora la carpeta de Intellij Idea
+.idea
+
+# Ignora la carpeta de Netbeans
+nbproject
+
+# Ignora los archivos generados por gradle
+.gradle
+
+# Ignora los archivos generados por maven
+target
