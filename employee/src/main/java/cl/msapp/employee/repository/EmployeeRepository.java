@@ -12,5 +12,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     public List<Employee> findByCategory(String category);
     public List<Employee> findByEntryDate(String entryDate);
     public List<Employee> findByBornDate(String bornDate);
+    public void deleteByRut(String rut);
 
 }
