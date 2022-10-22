@@ -25,19 +25,19 @@ public class JustificationRepositoryMockTest {
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Justification justification02 = Justification.builder()
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Justification justification03 = Justification.builder()
                 .rut("13345678-4")
                 .date("2020-01-01")
                 .category("C")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         justificationRepository.save(justification01);
         justificationRepository.save(justification02);
@@ -57,19 +57,19 @@ public class JustificationRepositoryMockTest {
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Justification justification02 = Justification.builder()
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Justification justification03 = Justification.builder()
                 .rut("13345678-4")
                 .date("2020-05-01")
                 .category("C")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         justificationRepository.save(justification01);
         justificationRepository.save(justification02);
@@ -88,19 +88,19 @@ public class JustificationRepositoryMockTest {
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Justification justification02 = Justification.builder()
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Justification justification03 = Justification.builder()
                 .rut("13345678-4")
                 .date("2020-05-01")
                 .category("C")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         justificationRepository.save(justification01);
         justificationRepository.save(justification02);
@@ -118,19 +118,19 @@ public class JustificationRepositoryMockTest {
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Justification justification02 = Justification.builder()
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Justification justification03 = Justification.builder()
                 .rut("13345678-4")
                 .date("2020-05-01")
                 .category("C")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         //when
         justificationRepository.save(justification01);
@@ -151,19 +151,19 @@ public class JustificationRepositoryMockTest {
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Justification justification02 = Justification.builder()
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Justification justification03 = Justification.builder()
                 .rut("13345678-4")
                 .date("2020-05-01")
                 .category("C")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
 
         justificationRepository.save(justification01);
@@ -185,19 +185,19 @@ public class JustificationRepositoryMockTest {
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Justification justification02 = Justification.builder()
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Justification justification03 = Justification.builder()
                 .rut("13345678-4")
                 .date("2020-05-01")
                 .category("C")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         justificationRepository.save(justification01);
         justificationRepository.save(justification02);

@@ -25,19 +25,19 @@ public class HourRepositoryMockTest {
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Hour hour02 = Hour.builder()
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Hour hour03 = Hour.builder()
                 .rut("13345678-4")
                 .date("2020-01-01")
                 .category("C")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         hourRepository.save(hour01);
         hourRepository.save(hour02);
@@ -57,19 +57,19 @@ public class HourRepositoryMockTest {
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Hour hour02 = Hour.builder()
                 .rut("12345618-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Hour hour03 = Hour.builder()
                 .rut("19345678-1")
                 .date("2020-01-02")
                 .category("C")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         hourRepository.save(hour01);
         hourRepository.save(hour02);
@@ -88,19 +88,19 @@ public class HourRepositoryMockTest {
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Hour hour02 = Hour.builder()
                 .rut("12345618-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Hour hour03 = Hour.builder()
                 .rut("19345678-1")
                 .date("2020-01-02")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         hourRepository.save(hour01);
         hourRepository.save(hour02);
@@ -119,19 +119,19 @@ public class HourRepositoryMockTest {
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Hour hour02 = Hour.builder()
                 .rut("12345618-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Hour hour03 = Hour.builder()
                 .rut("19345678-1")
                 .date("2020-01-02")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         hourRepository.save(hour01);
         hourRepository.save(hour02);
@@ -149,19 +149,19 @@ public class HourRepositoryMockTest {
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Hour hour02 = Hour.builder()
                 .rut("12345618-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Hour hour03 = Hour.builder()
                 .rut("19345678-1")
                 .date("2020-01-02")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         hourRepository.save(hour01);
         hourRepository.save(hour02);
@@ -179,19 +179,19 @@ public class HourRepositoryMockTest {
                 .rut("12345678-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Hour hour02 = Hour.builder()
                 .rut("12345618-9")
                 .date("2020-01-01")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         Hour hour03 = Hour.builder()
                 .rut("19345678-1")
                 .date("2020-01-02")
                 .category("A")
-                .created_at(new Date())
+                .createdAt(new Date())
                 .build();
         hourRepository.save(hour01);
         hourRepository.save(hour02);

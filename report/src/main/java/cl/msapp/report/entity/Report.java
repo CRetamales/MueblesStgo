@@ -21,36 +21,36 @@ public class Report {
     private String rut;
 
     @Column(name = "full_name", nullable = false)
-    private String full_name;
+    private String fullName;
 
     @Column(name = "category", nullable = false)
     private String category;
 
     @Column(name = "years_company", nullable = false)
-    private int years_company;
+    private int yearsCompany;
 
     @Column(name = "fixed_salary", nullable = false)
-    private int fixed_salary;
+    private int fixedSalary;
 
     @Column(name = "year_bonus", nullable = false)
-    private int year_bonus;
+    private int yearBonus;
 
     @Column(name = "extra_hours_bonus", nullable = false)
-    private int extra_hours_bonus;
+    private int extraHoursBonus;
 
     @Column(name = "discounts", nullable = false)
     private int discounts;
 
     @Column(name = "gross_salary", nullable = false)
-    private int gross_salary;
+    private int grossSalary;
 
     @Column(name = "pension_contribution", nullable = false)
-    private int pension_contribution;
+    private int pensionContribution;
 
     @Column(name = "health_contribution", nullable = false)
-    private int health_contribution;
+    private int healthContribution;
 
     @Column(name = "final_salary", nullable = false)
-    private int final_salary;
+    private int finalSalary;
 
 }
