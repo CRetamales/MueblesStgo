@@ -28,7 +28,7 @@ public class Justification {
     @Column(name = "category", nullable = false)
     private String category;
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 }

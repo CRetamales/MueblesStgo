@@ -1,28 +1,45 @@
 package cl.msapp.mark.service;
 
 import cl.msapp.mark.entity.Mark;
+import cl.msapp.mark.repository.MarkRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class MarkServiceImp implements MarkService{
+
+    @Autowired
+    private final MarkRepository markRepository;
+
     @Override
     public List<Mark> listAllMarks() {
-        return null;
+        return markRepository.findAll();
     }
 
     @Override
     public Mark getMark(Long id) {
-        return null;
+        return markRepository.findById(id).orElse(null);
     }
 
     @Override
     public Mark createMark(Mark mark) {
-        return null;
+        return markRepository.save(mark);
     }
 
     @Override
     public Mark updateMark(Mark mark) {
-        return null;
+        Mark markDB = getMark(mark.getId());
+        if (markDB == null){
+            return null;
+        }
+        markDB.setRut(mark.getRut());
+        markDB.setDate(mark.getDate());
+        markDB.setHour(mark.getHour());
+        return markRepository.save(markDB);
     }
 
     @Override

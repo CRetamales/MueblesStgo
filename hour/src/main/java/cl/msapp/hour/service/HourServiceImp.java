@@ -1,28 +1,48 @@
 package cl.msapp.hour.service;
 
 import cl.msapp.hour.entity.Hour;
+import cl.msapp.hour.repository.HourRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class HourServiceImp implements HourService{
+
+    @Autowired
+    private final HourRepository hourRepository;
+
     @Override
     public List<Hour> listAllHours() {
-        return null;
+        return hourRepository.findAll();
     }
 
     @Override
     public Hour getHour(Long id) {
-        return null;
+        return hourRepository.findById(id).orElse(null);
     }
 
     @Override
     public Hour createHour(Hour hour) {
-        return null;
+        hour.setCreatedAt(new Date());
+        return hourRepository.save(hour);
     }
 
     @Override
     public Hour updateHour(Hour hour) {
-        return null;
+        Hour hourDB = getHour(hour.getId());
+        if (hourDB == null){
+            return null;
+        }
+        hourDB.setRut(hour.getRut());
+        hourDB.setCategory(hour.getCategory());
+        hourDB.setDate(hour.getDate());
+        hourDB.setCreatedAt(hour.getCreatedAt());
+        return hourRepository.save(hourDB);
     }
 
     @Override
