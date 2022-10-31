@@ -15,7 +15,6 @@ public interface HourService {
     public List<Hour> findByCategory(String category);
     public List<Hour> findByDate(String date);
     public void deleteByRut(String rut);
-    public void deleteByDate(String date);
     public void deleteByCategory(String category);
-
+    public void deleteByDate(String date);
 }

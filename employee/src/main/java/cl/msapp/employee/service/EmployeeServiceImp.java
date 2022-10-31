@@ -76,7 +76,12 @@ public class EmployeeServiceImp implements EmployeeService{
     }
 
     @Override
-    public void deleteByRut(String rut) {
-        employeeRepository.deleteByRut(rut);
+    public Employee deleteByRut(String rut) {
+        Employee employeeDB = findByRut(rut);
+        if (employeeDB == null){
+            return null;
+        }
+        employeeRepository.delete(employeeDB);
+        return employeeDB;
     }
 }

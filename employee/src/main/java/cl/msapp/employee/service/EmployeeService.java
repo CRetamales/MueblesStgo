@@ -14,5 +14,5 @@ public interface EmployeeService {
     public List<Employee> findByCategory(String category);
     public List<Employee> findByEntryDate(String entryDate);
     public List<Employee> findByBornDate(String bornDate);
-    public void deleteByRut(String rut);
+    public Employee deleteByRut(String rut);
 }

@@ -9,3 +9,6 @@ nbproject
 
 # Ignora los archivos generados por maven
 target
+
+# Ignora los archivos .json
+*.json

@@ -13,7 +13,7 @@ public interface MarkService {
     public Mark deleteMark(Long id);
     public List<Mark> findByRut(String rut);
     public List<Mark> findByDate(String date);
-    public void deleteByRut(String rut);
-    public void deleteByDate(String date);
+    public List<Mark> deleteByRut(String rut);
+    public List<Mark> deleteByDate(String date);
 
 }

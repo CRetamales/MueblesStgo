@@ -66,17 +66,17 @@ public class JustificationServiceImp implements JustificationService{
     }
 
     @Override
-    public void deleteByRut(String rut) {
-
+    public List<Justification> deleteByRut(String rut) {
+        return null;
     }
 
     @Override
-    public void deleteByDate(String date) {
-
+    public List<Justification> deleteByDate(String date) {
+        return null;
     }
 
     @Override
-    public void deleteByCategory(String category) {
-
+    public List<Justification> deleteByCategory(String category) {
+        return null;
     }
 }

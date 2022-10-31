@@ -14,8 +14,8 @@ public interface JustificationService {
     public List<Justification> findByRut(String rut);
     public List<Justification> findByCategory(String category);
     public List<Justification> findByDate(String date);
-    public void deleteByRut(String rut);
-    public void deleteByDate(String date);
-    public void deleteByCategory(String category);
+    public List<Justification> deleteByRut(String rut);
+    public List<Justification> deleteByDate(String date);
+    public List<Justification> deleteByCategory(String category);
 
 }

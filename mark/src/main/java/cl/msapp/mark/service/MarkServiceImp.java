@@ -58,12 +58,12 @@ public class MarkServiceImp implements MarkService{
     }
 
     @Override
-    public void deleteByRut(String rut) {
-
+    public List<Mark> deleteByRut(String rut) {
+        return null;
     }
 
     @Override
-    public void deleteByDate(String date) {
-
+    public List<Mark> deleteByDate(String date) {
+        return null;
     }
 }
