@@ -10,5 +10,5 @@ nbproject
 # Ignora los archivos generados por maven
 target
 
-# Ignora los archivos .json
-*.json
+# Ignora los archivos .json de la carpeta ./data/Postman/Local
+data/Postman/Local/*.json
