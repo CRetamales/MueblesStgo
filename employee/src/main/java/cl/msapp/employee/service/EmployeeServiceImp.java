@@ -27,7 +27,14 @@ public class EmployeeServiceImp implements EmployeeService{
 
     @Override
     public Employee createEmployee(Employee employee) {
-        return employeeRepository.save(employee);
+
+        Employee employeeDB = employeeRepository.findByRut(employee.getRut());
+        if(employeeDB != null)
+        {
+            return employeeDB;
+        }
+        employeeDB = employeeRepository.save(employee);
+        return employeeDB;
     }
 
     @Override
