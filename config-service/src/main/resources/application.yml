@@ -11,7 +11,7 @@ spring:
                   uri: https://github.com/CRetamales/MueblesStgo
                   search-paths: config-data
                   default-label: develop
-              bootstrap: true #Para que busque el archivo bootstrap.yml
+
 
     application:
         name: config-service

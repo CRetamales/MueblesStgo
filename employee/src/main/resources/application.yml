@@ -1,35 +1,12 @@
-#Configuracion de propiedades
-server:
-  port: 8091
-  error:
-    include-message: always
-
 spring:
-  # Base de Datos
-  postgresql:
-    console:
-      enabled:true
-  dataSource:
-    #Configuracion de la base de datos
-    #postgresql
-    driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/msdb
-    username: postgres
-    password: 7214
+  application:
+    name: employee
+  config:
+    import: optional:configserver:http://localhost:8081
 
 
-  #JPA
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    properties:
-      hibernate:
-        show_sql: true
-        use_sql_comments: false
-        format_sql: false
 
-logging:
-  pattern:
-    console: '%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n'
+
+
+
+
