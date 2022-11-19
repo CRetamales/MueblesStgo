@@ -1,0 +1,20 @@
+#En las nuevas versiones de spring cloud se debe agregar el nombre del servicio
+#en el archivo application.yml
+
+server:
+    port: 8081
+spring:
+    cloud:
+        config:
+            server:
+              git:
+                  uri: https://github.com/CRetamales/MueblesStgo
+                  search-paths: config-data
+                  default-label: develop
+              bootstrap: true #Para que busque el archivo bootstrap.yml
+
+    application:
+        name: config-service
+
+
+
