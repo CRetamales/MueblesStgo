@@ -17,3 +17,11 @@ spring:
           uri: lb://employee
           predicates:
             - Path=/employee/**
+
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
