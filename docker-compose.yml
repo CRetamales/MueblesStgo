@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  config-service:
+    container_name: config-service
+    image: cfretamales/config-service:latest
+    ports:
+      - "8081:8081"
+  eureka:
+    container_name: eureka
+    image: cfretamales/eureka:latest
+    ports:
+      - "8099:8099"
+    depends_on:
+      - config-service
+    links:
+      - config-service
+    deploy:
+      restart_policy:
+        condition: on-failure
+    environment:
+        - spring.config.import=optional:configserver:http://config-service:8081

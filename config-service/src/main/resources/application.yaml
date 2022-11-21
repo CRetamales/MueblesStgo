@@ -1,5 +1,5 @@
 #En las nuevas versiones de spring cloud se debe agregar el nombre del servicio
-#en el archivo application.yml
+#en el archivo application.yaml
 
 server:
     port: 8081
@@ -11,8 +11,6 @@ spring:
                   uri: https://github.com/CRetamales/MueblesStgo
                   search-paths: config-data
                   default-label: develop
-
-
     application:
         name: config-service
 
