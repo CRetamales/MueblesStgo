@@ -1,5 +1,5 @@
 #En las nuevas versiones de spring cloud se debe agregar el nombre del servicio
-#en el archivo application.yaml
+#en el archivo application.yml
 
 server:
     port: 8081
