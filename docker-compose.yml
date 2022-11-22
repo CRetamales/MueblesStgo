@@ -5,7 +5,7 @@ services:
     image: cfretamales/config-server:latest
     ports:
       - "8081:8081"
-  eureka-service:
+  eureka:
     container_name: eureka
     image: cfretamales/eureka:latest
     ports:
@@ -19,3 +19,60 @@ services:
         condition: on-failure
     environment:
       - spring.config.import=optional:configserver:http://config-server:8081
+  api-gateway:
+    container_name: api-gateway
+    image: cfretamales/api-gateway:latest
+    deploy:
+      restart_policy:
+        condition: on-failure
+    environment:
+      - spring.config.import=optional:configserver:http://config-server:8081
+      - EUREKA_URL=http://eureka:8761/eureka/
+    ports:
+      - "8080:8080"
+    depends_on:
+      - config-server
+      - eureka
+    links:
+      - config-server
+      - eureka
+  postgres-db:
+    container_name: postgres-db
+    image: postgres:latest
+    ports:
+        - "5432:5432"
+    environment:
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=7214
+        - POSTGRES_DB=msdb
+        - PGDATA=/var/lib/postgresql/data/pgdata
+        - POSTGRES_INITDB_ARGS=--encoding=UTF-8
+    deploy:
+        restart_policy:
+            condition: on-failure
+  employee:
+    container_name: employee
+    image: cfretamales/employee:latest
+    ports:
+      - "8091:8091"
+    environment:
+        - spring.config.import=optional:configserver:http://config-server:8081
+        - EUREKA_URL=http://eureka:8761/eureka/
+        - DB_URL=jdbc:postgresql://postgres-db:5432/msdb
+        - DB_USERNAME=postgres
+        - DB_PASSWORD=7214
+    depends_on:
+        - config-server
+        - eureka
+        - postgres-db
+    links:
+        - config-server
+        - eureka
+        - postgres-db
+    deploy:
+        restart_policy:
+            condition: on-failure
+
+
+
+
