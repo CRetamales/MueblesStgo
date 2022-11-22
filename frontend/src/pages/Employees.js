@@ -9,7 +9,7 @@ const Employees = () => {
 
     const getEmployees = async () => {
         try {
-            let url = 'http://localhost:8080/employees/all';
+            let url = 'http://localhost:8080/employee';
             let response = await axios.get(url);
             if (response.status === 200) {
                 setEmployees(response.data);
@@ -21,12 +21,12 @@ const Employees = () => {
 
     const downloadEmployeesReport = async () => {
         try {
-            let url = 'http://localhost:8080/reports/employees';
+            let url = 'http://localhost:8080/employee/report';
             let response = await axios.get(url, {responseType: 'blob'});
             let downloadURL = URL.createObjectURL(new Blob([response.data]));
             let download_link = document.createElement("a");
             download_link.href = downloadURL;
-            download_link.download = `employee-report.xlsx`;
+            download_link.download = `employees.xlsx`;
             document.body.appendChild(download_link);
             download_link.click();
             download_link.remove();
@@ -67,20 +67,22 @@ const Employees = () => {
                         <thead>
                             <tr>
                             <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Fecha de entrada</th>
-                            <th>Salario Base</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>Categoria</th>
+                            <th>Fecha de Ingreso</th>
                             </tr>
                         </thead>
                         <tbody>
                             {employees.map((employee) => (
                                 <tr key={employee.id}>
                                     <td>{employee.id}</td>
-                                    <td>{employee.first_name}</td>
-                                    <td>{employee.last_name}</td>
-                                    <td>{employee.entrance_date}</td>
-                                    <td>{employee.base_salary}</td>
+                                    <td>{employee.names}</td>
+                                    <td>{employee.lastNames}</td>
+                                    <td>{employee.bornDate}</td>
+                                    <td>{employee.category}</td>
+                                    <td>{employee.entryDate}</td>
                                 </tr>
                             ))}
                         </tbody>

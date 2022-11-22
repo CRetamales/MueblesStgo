@@ -8,7 +8,8 @@ const UploadClockData = () => {
 
     const handleUpload = (e) => {
         e.preventDefault();
-
+        
+        //let url = 'http://localhost:8080/mark/upload';
         let url = 'http://localhost:8080/schedules/files/clocks/upload';
         let form_data = new FormData();
         form_data.append("file", selectedFile);
