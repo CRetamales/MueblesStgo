@@ -1,16 +1,9 @@
 spring:
   application:
     name: eureka
-  cloud:
-    config:
-      retry:
-        maxAttempts: 200
-        maxInterval: 10000
-
 server:
   port: 8761
 eureka:
-  enable-self-preservation: false
   instance:
     hostname: localhost
   server:

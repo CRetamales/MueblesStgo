@@ -2,4 +2,7 @@ spring:
   application:
     name: eureka
   config:
-    import: configserver:http://localhost:8081
+    import: optional:configserver:http://localhost:8081
+    retry:
+      maxAttempts: 200
+      maxInterval: 10000
