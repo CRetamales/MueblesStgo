@@ -1,31 +1,21 @@
 version: "3.8"
 services:
-  config-service:
-    container_name: config-service
-    image: cfretamales/config-service:latest
+  config-server:
+    container_name: config-server
+    image: cfretamales/config-server:latest
     ports:
       - "8081:8081"
-  eureka:
+  eureka-service:
     container_name: eureka
     image: cfretamales/eureka:latest
     ports:
       - "8761:8761"
     depends_on:
-      - config-service
+      - config-server
     links:
-      - config-service
+      - config-server
     deploy:
       restart_policy:
         condition: on-failure
-    #importar configuracion de config-service en eureka
     environment:
-      - spring.cloud.config.uri=http://config-service:8081
-      - spring.cloud.config.enabled=false
-      - spring.cloud.config.fail-fast=true
-      - spring.cloud.config.retry.maxAttempts=200
-
-
-
-
-
-
+      - spring.config.import=optional:configserver:http://config-server:8081
