@@ -4,14 +4,35 @@ spring:
 server:
   port: 8761
 eureka:
-  instance:
-    hostname: localhost
-  server:
-    waitTimeInMsWhenSyncEmpty: 0
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    client:
+        registerWithEureka: false
+        fetchRegistry: false
+        serviceUrl:
+        defaultZone: http://localhost:8761/eureka/
+    instance:
+        hostname: localhost
+    server:
+        enableSelfPreservation: false
+        eviction-interval-timer-in-ms: 5000
+        waitTimeInMsWhenSyncEmpty: 0
+        response-cache-update-interval-ms: 0
+        enableReplication: false
+        registrySyncRetries: 0
+        shouldUnregisterOnShutdown: false
+        shouldDisableDelta: false
+        shouldOnDemandUpdateStatusChange: false
+        shouldPreferSameZone: false
+        shouldFilterOnlyUpInstances: false
+        shouldLogDeltaDiff: false
+        shouldDisableDeltaForRemoteRegions: false
+        shouldEnforceRegistrationAtInit: false
+        shouldEnforceFetchRegistryAtInit: false
+        shouldEnforceAvailableStatusAtInit: false
+        shouldEnforceRegistrationWithEureka: false
+        shouldEnforceFetchRegistry: false
+        shouldEnforceAvailableStatus: false
+        shouldRegisterWithEureka: false
+        shouldFetchRegistry: false
+       
 
 
