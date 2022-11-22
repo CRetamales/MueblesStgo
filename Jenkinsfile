@@ -36,6 +36,8 @@ pipeline {
         }
         stage('Build Docker Image'){
             steps{
+                //echo "Usuario: ${env.USER}"
+                //sh 'groups'
                 echo 'Construyendo imagen Docker'
                 echo 'Microservico Config Server'
                 dir('config-server') {
@@ -54,7 +56,28 @@ pipeline {
                     sh 'docker build -t cfretamales/employee .'
                 }
             }
-
+        }
+        stage('Push docker image'){
+            steps{
+                withCredentials([string(credentialsId: 'dckrhubpassword', variable: 'dckrPass')]) {
+                    sh 'docker login -u cfretamales -p ${dckrPass}'
+                }
+                echo 'Subiendo imagen Docker'
+                echo 'Microservico Config Server'
+                sh 'docker push cfretamales/config-server'
+                echo 'Microservico Eureka Server'
+                sh 'docker push cfretamales/eureka'
+                echo 'Microservico api-gateway'
+                sh 'docker push cfretamales/api-gateway'
+                echo 'Microservico employee'
+                sh 'docker push cfretamales/employee'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Deslogueando de Docker Hub'
+            sh 'docker logout'
         }
     }
 }
