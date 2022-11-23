@@ -30,7 +30,6 @@ pipeline {
                 echo 'Frontend con react'
                 dir('frontend') {
                     sh 'npm install'
-                    sh 'npm run build'
                 }
             }
         }
