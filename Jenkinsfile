@@ -27,6 +27,10 @@ pipeline {
                 dir('employee') {
                     sh 'mvn clean install -DskipTests'
                 }
+                echo 'Microservico hour'
+                dir('hour') {
+                    sh 'mvn clean install -DskipTests'
+                }
                 echo 'Microservico mark'
                 dir('mark') {
                     sh 'mvn clean install -DskipTests'
@@ -70,6 +74,10 @@ pipeline {
                 dir('employee') {
                     sh 'docker build -t cfretamales/employee .'
                 }
+                echo 'Microservico hour'
+                dir('hour') {
+                    sh 'docker build -t cfretamales/hour .'
+                }
                 echo 'Microservico mark'
                 dir('mark') {
                     sh 'docker build -t cfretamales/mark .'
@@ -94,6 +102,8 @@ pipeline {
                 sh 'docker push cfretamales/api-gateway'
                 echo 'Microservico employee'
                 sh 'docker push cfretamales/employee'
+                echo 'Microservico hour'
+                sh 'docker push cfretamales/hour'
                 echo 'Microservico mark'
                 sh 'docker push cfretamales/mark'
                 echo 'Frontend con react'
