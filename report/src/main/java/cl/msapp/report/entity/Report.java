@@ -1,5 +1,9 @@
 package cl.msapp.report.entity;
 
+import cl.msapp.report.model.Employee;
+import cl.msapp.report.model.Hour;
+import cl.msapp.report.model.Justification;
+import cl.msapp.report.model.Mark;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +20,18 @@ public class Report {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
+
+    @Transient
+    private Employee employee;
+
+    @Transient
+    private Hour hour;
+
+    @Transient
+    private Justification justification;
+
+    @Transient
+    private Mark mark;
 
     @Column(name = "rut", nullable = false)
     private String rut;

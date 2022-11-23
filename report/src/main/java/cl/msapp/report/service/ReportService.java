@@ -1,6 +1,11 @@
 package cl.msapp.report.service;
 
+import cl.msapp.report.client.EmployeeClient;
+import cl.msapp.report.client.HourClient;
+import cl.msapp.report.client.JustificationClient;
+import cl.msapp.report.client.MarkClient;
 import cl.msapp.report.entity.Report;
+import cl.msapp.report.model.Employee;
 import cl.msapp.report.repository.ReportRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +20,58 @@ public class ReportService {
     @Autowired
     private final ReportRepository reportRepository;
 
+    @Autowired
+    EmployeeClient employeeClient;
+
+    @Autowired
+    HourClient hourClient;
+
+    @Autowired
+    JustificationClient justificationClient;
+
+    @Autowired
+    MarkClient markClient;
 
     public List<Report> listAllReports() {
+
+        //Por cada empleado, se genera un reporte
+        //Se obtiene la lista de empleados
+        List<Employee> employee = employeeClient.listEmployee().getBody();
+        if (employee == null){
+            return reportRepository.findAll();
+        }
+        //Se recorre la lista de empleados
+        for (Employee e : employee) {
+            //Se crea un reporte
+            Report report = new Report();
+            //Se obtiene el rut del empleado
+            report.setRut(e.getRut());
+            //Se obtiene el nombre del empleado
+            report.setFullName(e.getNames() + " " + e.getLastNames());
+            //Se obtiene la categoria del empleado
+            report.setCategory(e.getCategory());
+            //Se obtiene los años de antiguedad del empleado
+            report.setYearsCompany(2);
+            //Se obtiene el sueldo fijo del empleado
+            report.setFixedSalary(1000000);
+            //Se obtiene el bono anual del empleado
+            report.setYearBonus(1000000);
+            //Se obtiene el bono por horas extras del empleado
+            report.setExtraHoursBonus(1000000);
+            //Se obtiene los descuentos del empleado
+            report.setDiscounts(1000000);
+            //Se obtiene el sueldo bruto del empleado
+            report.setGrossSalary(1000000);
+            //Se obtiene la cotizacion de pension del empleado
+            report.setPensionContribution(1000000);
+            //Se obtiene la cotizacion de salud del empleado
+            report.setHealthContribution(1000000);
+            //Se obtiene el sueldo liquido del empleado
+            report.setFinalSalary(1000000);
+            //Se guarda el reporte
+            reportRepository.save(report);
+        }
+
         return reportRepository.findAll();
     }
 
