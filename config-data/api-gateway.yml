@@ -28,8 +28,9 @@ spring:
           predicates:
             - Path=/mark/**
 
+      #CORRECCION DE ERROR DE CORS
       globalcors:
-        cors-configurations:
+        corsConfigurations:
           '[/**]':
             allowedOrigins: "*"
             allowedMethods: "*"
