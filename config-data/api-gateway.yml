@@ -31,6 +31,10 @@ spring:
           uri: lb://mark
           predicates:
             - Path=/mark/**
+        - id: report
+          uri: lb://report
+          predicates:
+            - Path=/report/**
 
       #CORRECCION DE ERROR DE CORS
       globalcors:
