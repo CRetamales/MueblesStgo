@@ -138,6 +138,28 @@ services:
     deploy:
         restart_policy:
             condition: on-failure
+  report:
+    container_name: report
+    image: cfretamales/report:latest
+    ports:
+      - "8095:8095"
+    environment:
+        - spring.config.import=optional:configserver:http://config-server:8081
+        - EUREKA_URL=http://eureka:8761/eureka/
+        - DB_URL=jdbc:postgresql://postgres-db:5432/msdb
+        - DB_USERNAME=postgres
+        - DB_PASSWORD=7214
+    depends_on:
+        - config-server
+        - eureka
+        - postgres-db
+    links:
+        - config-server
+        - eureka
+        - postgres-db
+    deploy:
+        restart_policy:
+            condition: on-failure
   react:
     container_name: react
     image: cfretamales/react:latest
