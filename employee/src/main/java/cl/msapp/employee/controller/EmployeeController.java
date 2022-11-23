@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @Slf4j
 @RestController
 @RequestMapping("/employee")
@@ -139,6 +140,15 @@ public class EmployeeController {
         employeeService.deleteByRut(rut);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/export")
+    public void export() throws JsonProcessingException {
+        List<Employee> employees = employeeService.listAllEmployees();
+        employeeService.exportToXls(employees);
+    }
+
+
+
     private String formatMessage(BindingResult result) {
         List<Map<String, String>> errors = result.getFieldErrors().stream()
                 .map(err -> {

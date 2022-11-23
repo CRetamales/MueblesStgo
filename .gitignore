@@ -1,6 +1,9 @@
 # Ignora la carpeta de Intellij Idea
 .idea
 
+#Ignora la carpeta de export
+export
+
 # Ignora la carpeta de Netbeans
 nbproject
 

@@ -27,6 +27,11 @@ pipeline {
                 dir('employee') {
                     sh 'mvn clean install -DskipTests'
                 }
+                echo 'Frontend con react'
+                dir('frontend') {
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
             }
         }
         stage('Test'){
@@ -55,6 +60,10 @@ pipeline {
                 dir('employee') {
                     sh 'docker build -t cfretamales/employee .'
                 }
+                echo 'Frontend con react'
+                dir('frontend') {
+                    sh 'docker build -t cfretamales/react .'
+                }
             }
         }
         stage('Push docker image'){
@@ -71,6 +80,8 @@ pipeline {
                 sh 'docker push cfretamales/api-gateway'
                 echo 'Microservico employee'
                 sh 'docker push cfretamales/employee'
+                echo 'Frontend con react'
+                sh 'docker push cfretamales/react'
             }
         }
     }

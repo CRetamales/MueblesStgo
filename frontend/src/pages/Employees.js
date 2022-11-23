@@ -21,17 +21,8 @@ const Employees = () => {
 
     const downloadEmployeesReport = async () => {
         try {
-            let url = 'http://localhost:8080/employee/report';
-            let response = await axios.get(url, {responseType: 'blob'});
-            let downloadURL = URL.createObjectURL(new Blob([response.data]));
-            let download_link = document.createElement("a");
-            download_link.href = downloadURL;
-            download_link.download = `employees.xlsx`;
-            document.body.appendChild(download_link);
-            download_link.click();
-            download_link.remove();
-            setShowAlert(false);
-            setShowAlert('');
+            let url = 'http://localhost:8080/employee/export';
+            let response = await axios.get(url);
         } catch (error) {
             setShowAlert(true);
             setMessageAlert('No existen empleados suficientes.')

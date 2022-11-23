@@ -72,7 +72,18 @@ services:
     deploy:
         restart_policy:
             condition: on-failure
-
+  react:
+    container_name: react
+    image: cfretamales/react:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+        - api-gateway
+    links:
+        - api-gateway
+    deploy:
+        restart_policy:
+            condition: on-failure
 
 
 

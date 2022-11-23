@@ -3,7 +3,6 @@ package cl.msapp.employee;
 import cl.msapp.employee.entity.Employee;
 import cl.msapp.employee.repository.EmployeeRepository;
 import cl.msapp.employee.service.EmployeeService;
-import cl.msapp.employee.service.EmployeeServiceImp;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,7 +26,7 @@ public class EmployeeServiceMockTest {
     {
 
         MockitoAnnotations.openMocks(this);
-        employeeService = new EmployeeServiceImp(employeeRepository);
+        employeeService = new EmployeeService(employeeRepository);
         Employee employee01 = Employee.builder()
                 .id(1L)
                 .rut("12345678-9")
