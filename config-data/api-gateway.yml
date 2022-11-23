@@ -19,9 +19,13 @@ spring:
           uri: lb://employee
           predicates:
             - Path=/employee/**
+        - id: mark
+          uri: lb://mark
+          predicates:
+            - Path=/mark/**
 
       globalcors:
-        corsConfigurations:
+        cors-configurations:
           '[/**]':
             allowedOrigins: "*"
             allowedMethods: "*"

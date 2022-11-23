@@ -27,9 +27,16 @@ pipeline {
                 dir('employee') {
                     sh 'mvn clean install -DskipTests'
                 }
-                echo 'Frontend con react'
+
+            }
+        }
+        stage('Build Frontend React')
+        {
+            steps {
+                echo 'Compilando el Frontend con React'
                 dir('frontend') {
                     sh 'npm install'
+                    //sh 'npm run build'
                 }
             }
         }

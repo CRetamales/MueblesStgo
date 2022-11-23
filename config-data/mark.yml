@@ -13,9 +13,12 @@ spring:
     #Configuracion de la base de datos
     #postgresql
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/msdb
-    username: postgres
-    password: 7214
+    #url: jdbc:postgresql://localhost:5432/msdb
+    #username: postgres
+    #password: 7214
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/msdb}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASSWORD:7214}
 
 
   #JPA
@@ -36,7 +39,7 @@ logging:
 
 eureka:
   client:
+    fetch-registry: true
+    register-with-eureka: true
     serviceUrl:
-      defaultZone: ${EUREKA_URL:http://localhost:8099/eureka/}
-
-
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
