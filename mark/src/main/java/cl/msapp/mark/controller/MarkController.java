@@ -13,7 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/mark")
-@CrossOrigin(origins = "localhost:3000")
 public class MarkController {
 
     @Autowired

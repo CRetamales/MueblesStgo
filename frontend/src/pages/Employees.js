@@ -22,7 +22,7 @@ const Employees = () => {
     const downloadEmployeesReport = async () => {
         try {
             let url = 'http://localhost:8080/employee/export';
-            let response = await axios.get(url);
+            await axios.get(url);
         } catch (error) {
             setShowAlert(true);
             setMessageAlert('No existen empleados suficientes.')
