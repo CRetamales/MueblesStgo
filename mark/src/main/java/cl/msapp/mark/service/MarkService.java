@@ -105,9 +105,9 @@ public class MarkService {
                     if (dataSplit.length == 3) {
 
                         Mark mark = new Mark();
-                        mark.setRut(dataSplit[0]);
-                        mark.setDate(dataSplit[1]);
-                        mark.setHour(dataSplit[2]);
+                        mark.setRut(dataSplit[2]);
+                        mark.setHour(dataSplit[1]);
+                        mark.setDate(dataSplit[0]);
                         createMark(mark);
                     }
                     else {
