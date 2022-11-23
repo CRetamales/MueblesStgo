@@ -15,11 +15,11 @@ const Menu = () => {
                         </NavDropdown>
                         <NavDropdown title="Justificativos" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/justification">Justificativos</NavDropdown.Item>
-                            <NavDropdown.Item href="/justification/make">Crear Justificativos</NavDropdown.Item>
+                            <NavDropdown.Item href="/justification/form">Crear Justificativos</NavDropdown.Item>
                         </NavDropdown>
                         <NavDropdown title="Horas Extra" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/extrahour">Horas Extra</NavDropdown.Item>
-                            <NavDropdown.Item href="/extrahour/make">Crear Horas Extra</NavDropdown.Item>
+                            <NavDropdown.Item href="/extrahour/form">Crear Horas Extra</NavDropdown.Item>
                         </NavDropdown>
                         <NavDropdown title="Reporte" id="basic-nav-dropdown">
                             <NavDropdown.Item href="/report">Reporte</NavDropdown.Item>

@@ -58,6 +58,7 @@ const Employees = () => {
                         <thead>
                             <tr>
                             <th>ID</th>
+                            <th>RUT</th>
                             <th>Nombres</th>
                             <th>Apellidos</th>
                             <th>Fecha de Nacimiento</th>
@@ -69,6 +70,7 @@ const Employees = () => {
                             {employees.map((employee) => (
                                 <tr key={employee.id}>
                                     <td>{employee.id}</td>
+                                    <td>{employee.rut}</td>
                                     <td>{employee.names}</td>
                                     <td>{employee.lastNames}</td>
                                     <td>{employee.bornDate}</td>

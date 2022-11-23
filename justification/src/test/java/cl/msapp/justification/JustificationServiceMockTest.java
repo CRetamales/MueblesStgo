@@ -3,7 +3,6 @@ package cl.msapp.justification;
 import cl.msapp.justification.entity.Justification;
 import cl.msapp.justification.repository.JustificationRepository;
 import cl.msapp.justification.service.JustificationService;
-import cl.msapp.justification.service.JustificationServiceImp;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,7 +25,7 @@ public class JustificationServiceMockTest {
     public void setup()
     {
         MockitoAnnotations.openMocks(this);
-        justificationService = new JustificationServiceImp(justificationRepository);
+        justificationService = new JustificationService(justificationRepository);
         Justification justification01 = Justification.builder()
                 .id(1L)
                 .rut("12345678-9")

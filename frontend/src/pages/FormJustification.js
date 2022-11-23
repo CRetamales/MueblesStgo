@@ -5,9 +5,9 @@ import axios from 'axios';
 
 //Componente de React
 //Siendo un componente de React, 
-//que se encarga de mostrar un formulario para registrar horas extras
+//que se encarga de mostrar un formulario para registrar las justificaciones
 //y luego enviar los datos a la API en formato JSON
-const FormExtraHour = () => {
+const FormJustification = () => {
     
         //Declaración de variables
         //Se declaran las variables que se utilizarán en el componente
@@ -32,11 +32,11 @@ const FormExtraHour = () => {
             }
         };
     
-        //Función para enviar los datos de la hora extra
+        //Función para enviar los datos de la justificación
         //Se envían los datos de la hora extra a la API
         const sendExtraHour = async () => {
             try {
-                let url = 'http://localhost:8080/hour';
+                let url = 'http://localhost:8080/justification';
                 let data = {
                     rut: rut,
                     date: date,
@@ -69,12 +69,12 @@ const FormExtraHour = () => {
             <Container style={{marginTop: '70px'}}>
                 <Row>
                     <Col>
-                        <h1>Registrar hora extra</h1>
+                        <h1>Registrar justificativo</h1>
                     </Col>
                 </Row>
                 <Row className="mt-2">
                     <Col lg="3" sm="4">
-                        <Button variant="success" onClick={sendExtraHour}>Registrar hora extra</Button>
+                        <Button variant="success" onClick={sendExtraHour}>Registrar justificativo</Button>
                     </Col>
                     <Col lg="9" sm="8">
                         <Alert variant="danger" style={{width: "100%", height:"40px"}} show={showAlert} >
@@ -126,7 +126,7 @@ const FormExtraHour = () => {
 };
 
 //Exportación del componente
-export default FormExtraHour;
+export default FormJustification;
 
 
 
