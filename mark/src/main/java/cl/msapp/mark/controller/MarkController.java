@@ -5,12 +5,15 @@ import cl.msapp.mark.service.MarkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/mark")
+@CrossOrigin(origins = "localhost:3000")
 public class MarkController {
 
     @Autowired
@@ -111,5 +114,31 @@ public class MarkController {
         }
         return ResponseEntity.ok(marks);
     }
+
+    //Funcion de metodo post para recibir un archivo txt
+    @PostMapping("/upload")
+    public ResponseEntity<String> uploadFile(@RequestParam MultipartFile file){
+
+        //Se comprueba que el archivo no este vacio
+        if(file.isEmpty()){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El archivo esta vacio");
+        }
+
+        // Se obtiene el nombre del archivo
+        String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+
+        //Se comprueba que el archivo sea txt
+        if(!fileName.endsWith(".txt")){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("El archivo no es de tipo txt");
+        }
+
+        //Se llama al metodo de la clase MarkService para procesar el archivo
+        String response = markService.uploadFile(file);
+
+        //Se retorna el mensaje de respuesta
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+
+    }
+
 
 }

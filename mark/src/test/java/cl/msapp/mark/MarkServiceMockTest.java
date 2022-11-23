@@ -3,7 +3,6 @@ package cl.msapp.mark;
 import cl.msapp.mark.entity.Mark;
 import cl.msapp.mark.repository.MarkRepository;
 import cl.msapp.mark.service.MarkService;
-import cl.msapp.mark.service.MarkServiceImp;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,7 +25,7 @@ public class MarkServiceMockTest {
     public void setup()
     {
         MockitoAnnotations.openMocks(this);
-        markService = new MarkServiceImp(markRepository);
+        markService = new MarkService(markRepository);
         Mark mark01 = Mark.builder()
                 .id(1L)
                 .rut("12345678-9")
