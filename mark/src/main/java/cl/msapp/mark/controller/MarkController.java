@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
-@CrossOrigin(origins = "localhost:3000")
 @RestController
 @RequestMapping("/mark")
 public class MarkController {
