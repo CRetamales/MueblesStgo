@@ -25,4 +25,7 @@ public interface HourClient {
     @GetMapping("/category/{category}")
     public ResponseEntity<List<Hour>> findByCategory(@PathVariable("category") String category);
 
+    @GetMapping("/{rut}/{date}")
+    public ResponseEntity<Hour> getHourByRutAndDate(@PathVariable("rut") String rut, @PathVariable("date") String date);
+
 }

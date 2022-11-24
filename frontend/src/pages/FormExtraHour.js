@@ -44,6 +44,12 @@ const FormExtraHour = () => {
                 };
 
                 
+                //Cambiar el formato de la fecha
+                //Se cambia el formato de la fecha para que sea compatible con la API
+                //yyyy-mm-dd a yyyy/mm/dd
+                let dateArray = data.date.split('-');
+                data.date = dateArray[0] + '/' + dateArray[1] + '/' + dateArray[2];
+                
                 let response = await axios.post(url, data);
                 setMessageAlert(response);
                 if (response.status === 200) {

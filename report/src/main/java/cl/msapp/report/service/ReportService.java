@@ -6,6 +6,7 @@ import cl.msapp.report.client.JustificationClient;
 import cl.msapp.report.client.MarkClient;
 import cl.msapp.report.entity.Report;
 import cl.msapp.report.model.Employee;
+import cl.msapp.report.model.Hour;
 import cl.msapp.report.model.Mark;
 import cl.msapp.report.repository.ReportRepository;
 import lombok.RequiredArgsConstructor;
@@ -104,24 +105,39 @@ public class ReportService {
             int horas_extras = 0;
             int descuentos = 0;
             int monto_horas_extras = 0;
+            List<String> dias_extras = new ArrayList<>();
+
             //Se corre los años y meses
             for (String ym : yearMonth){
                 //Se obtienen las marcas de reloj del empleado en el año y mes
                 List<Mark> markByYearMonthRut = markClient.getMarkByYearMonthRut(ym, e.getRut()).getBody();
                 //Se recorre las marcas de reloj del empleado en el año y mes
                 //La posicion 0 es la entrada y la posicion 1 es la salida
-                for (int i = 0; i < markByYearMonthRut.size(); i++) {
+                for (int i = 0; i < markByYearMonthRut.size(); ++i) {
                     if (i % 2 == 0) {
                         //Si la marca se encuentra entre el lunes y el viernes
                         if(markByYearMonthRut.get(i).isRangeLunesViernes()){
+
                             dias_trabajados++;
                             //Si tiene horas extras
                             int hora_extra_employee = markByYearMonthRut.get(i).calcularHorasTrabajadas(markByYearMonthRut.get(i+1));
-                            if (hora_extra_employee > 10){
-                                //Trabajo más de 10 horas
-                                //Se valida si tiene autorización de horas extras
-                                horas_extras += hora_extra_employee - 11;
+                            if (hora_extra_employee > 11){
+                                //Trabajo más de 11 horas
+                                //Se la fecha de la marca de entrada
+                                String[] dateParts = markByYearMonthRut.get(i).getDate().split("/");
+                                String yearMark = dateParts[0];
+                                String monthMark = dateParts[1];
+                                String dayMark = dateParts[2];
 
+                                //Se obtiene la justificacion de la marca de entrada
+                                Hour hour = hourClient.getHourByRutAndDate(e.getRut(), (yearMark + "-" + monthMark + "-" + dayMark)).getBody();
+                                if(hour.getDate().equals(markByYearMonthRut.get(i).getDate())){
+                                    //si hour.getDate() no esta en la lista de dias extras
+                                    if(!dias_extras.contains(hour.getDate())) {
+                                        horas_extras += hora_extra_employee - 11;
+                                        dias_extras.add(hour.getDate());
+                                    }
+                                }
                             }
                         }
                         //Si hay descuentos

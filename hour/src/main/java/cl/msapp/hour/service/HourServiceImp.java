@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -62,6 +63,25 @@ public class HourServiceImp implements HourService{
 
     @Override
     public List<Hour> findByCategory(String category) {
+        return null;
+    }
+
+    public Hour findByRutAndDate(String rut, String date) {
+        //El string date debe tener el formato yyyy/MM/dd
+        //y viene en formato yyyy-MM-dd
+        String[] dateArray = date.split("-");
+        String dateFormatted = dateArray[0] + "/" + dateArray[1] + "/" + dateArray[2];
+        //Tener todas las horas
+        List<Hour> hours = listAllHours();
+        //Se recorre la lista de horas
+        for (Hour hour : hours) {
+            //Se compara si el rut y la fecha son iguales
+            if (hour.getRut().equals(rut) && hour.getDate().equals(dateFormatted)) {
+                //Se retorna la hora
+                return hour;
+            }
+        }
+        //Si no se encuentra la hora, se retorna null
         return null;
     }
 

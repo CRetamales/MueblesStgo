@@ -96,6 +96,7 @@ const ViewReport = () => {
             </Row>
         </Container>
     );
+    
 };
 
 export default ViewReport;

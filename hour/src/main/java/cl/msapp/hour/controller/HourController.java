@@ -38,6 +38,17 @@ public class HourController {
         return ResponseEntity.ok(hour);
     }
 
+    @GetMapping("/{rut}/{date}")
+    public ResponseEntity<Hour> getHourByRutAndDate(@PathVariable("rut") String rut, @PathVariable("date") String date)
+    {
+        Hour hour = hourService.findByRutAndDate(rut, date);
+        if(hour == null)
+        {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(hour);
+    }
+
     @PostMapping
     public ResponseEntity<Hour> createHour(@RequestBody Hour hour)
     {
