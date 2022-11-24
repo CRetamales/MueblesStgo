@@ -8,7 +8,7 @@ spring:
           uri: https://github.com/CRetamales/MueblesStgo
           search-paths: config-data
           default-label: develop #Despues cambiar a master
-          timeout: 60000
+
 
   application:
     name: config-service
