@@ -56,7 +56,7 @@ pipeline {
                 echo 'Compilando el Frontend con React'
                 dir('frontend') {
                     sh 'npm install'
-                    //sh 'npm run build'
+                    sh 'npm run build'
                 }
             }
         }
