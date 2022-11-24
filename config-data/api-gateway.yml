@@ -35,6 +35,10 @@ spring:
           uri: lb://report
           predicates:
             - Path=/report/**
+        - id: template
+          uri: lb://template
+          predicates:
+            - Path=/template/**
 
       #CORRECCION DE ERROR DE CORS
       globalcors:

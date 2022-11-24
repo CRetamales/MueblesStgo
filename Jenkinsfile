@@ -43,6 +43,10 @@ pipeline {
                 dir('report') {
                     sh 'mvn clean install -DskipTests'
                 }
+                echo 'Microservico template'
+                dir('template') {
+                    sh 'mvn clean install -DskipTests'
+                }
 
             }
         }
@@ -98,6 +102,10 @@ pipeline {
                 dir('report') {
                     sh 'docker build -t cfretamales/report .'
                 }
+                echo 'Microservico template'
+                dir('template') {
+                    sh 'docker build -t cfretamales/template .'
+                }
                 echo 'Frontend con react'
                 dir('frontend') {
                     sh 'docker build -t cfretamales/react .'
@@ -126,6 +134,8 @@ pipeline {
                 sh 'docker push cfretamales/mark'
                 echo 'Microservico report'
                 sh 'docker push cfretamales/report'
+                echo 'Microservico template'
+                sh 'docker push cfretamales/template'
                 echo 'Frontend con react'
                 sh 'docker push cfretamales/react'
             }

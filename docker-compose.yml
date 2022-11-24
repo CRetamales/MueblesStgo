@@ -160,6 +160,30 @@ services:
     deploy:
         restart_policy:
             condition: on-failure
+  template:
+    container_name: template
+    image: cfretamales/template:latest
+    ports:
+      - "8096:8096"
+    environment:
+        - spring.config.import=optional:configserver:http://config-server:8081
+        - EUREKA_URL=http://eureka:8761/eureka/
+        - DB_URL=jdbc:postgresql://postgres-db:5432/msdb
+        - DB_USERNAME=postgres
+        - DB_PASSWORD=7214
+    depends_on:
+        - config-server
+        - eureka
+        - postgres-db
+        - report
+    links:
+        - config-server
+        - eureka
+        - postgres-db
+        - report
+    deploy:
+        restart_policy:
+            condition: on-failure
   prometheus:
     container_name: prometheus
     image: prom/prometheus
