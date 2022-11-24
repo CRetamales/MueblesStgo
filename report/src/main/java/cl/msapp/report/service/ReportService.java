@@ -101,6 +101,7 @@ public class ReportService {
             }
             r.setYearBonus(year_bonus_employee);
             int dias_trabajados = 0;
+            int horas_extras = 0;
             int descuentos = 0;
             int monto_horas_extras = 0;
             //Se corre los años y meses
@@ -115,6 +116,13 @@ public class ReportService {
                         if(markByYearMonthRut.get(i).isRangeLunesViernes()){
                             dias_trabajados++;
                             //Si tiene horas extras
+                            int hora_extra_employee = markByYearMonthRut.get(i).calcularHorasTrabajadas(markByYearMonthRut.get(i+1));
+                            if (hora_extra_employee > 10){
+                                //Trabajo más de 10 horas
+                                //Se valida si tiene autorización de horas extras
+                                horas_extras += hora_extra_employee - 11;
+
+                            }
                         }
                         //Si hay descuentos
                         int retraso = markByYearMonthRut.get(i).calcularRetraso();
@@ -133,6 +141,18 @@ public class ReportService {
             }
 
             //Parte de horas extras
+            //si la categoria es A, se multiplica por 25000
+            //si la categoria es B, se multiplica por 20000
+            //si la categoria es C, se multiplica por 10000
+
+            if (category_employee.equals("A")){
+                monto_horas_extras = horas_extras * 25000;
+            } else if (category_employee.equals("B")){
+                monto_horas_extras = horas_extras * 20000;
+            } else if (category_employee.equals("C")){
+                monto_horas_extras = horas_extras * 10000;
+            }
+
             r.setExtraHoursBonus(monto_horas_extras);
             //Se calcula los montos de los descuentos
             int monto_descuentos = (int)( (float) fixed_salary_employee * ( (float) descuentos / 100));
