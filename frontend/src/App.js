@@ -12,6 +12,7 @@ import FormExtraHour from './pages/FormExtraHour';
 import FormJustification from './pages/FormJustification';
 import ViewJustification from './pages/ViewJustification';
 import FormReport from './pages/FormReport';
+import ViewReport from './pages/ViewReport';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path='/extrahour' element={<ViewExtraHour/>} exact />
           <Route path='/extrahour/form' element={<FormExtraHour/>} exact />
           <Route path='/report/make' element={<FormReport/>} exact />
+          <Route path='/report' element={<ViewReport/>} exact />
 
 
 
