@@ -25,4 +25,8 @@ public interface MarkClient {
     @GetMapping("/date/{date}")
     public ResponseEntity<List<Mark>> findByDate(@PathVariable("date") String date);
 
+    @GetMapping("/yearMonthRut/{yearMonth}/{rut}")
+    public ResponseEntity<List<Mark>> getMarkByYearMonthRut(@PathVariable("yearMonth") String yearMonth, @PathVariable("rut") String rut);
+
+
 }

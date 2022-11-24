@@ -40,6 +40,17 @@ public class MarkController {
         return ResponseEntity.ok(mark);
     }
 
+    @GetMapping("/yearMonthRut/{yearMonth}/{rut}")
+    public ResponseEntity<List<Mark>> getMarkByYearMonthRut(@PathVariable("yearMonth") String yearMonth, @PathVariable("rut") String rut)
+    {
+        List<Mark> marks = markService.getMarkByYearMonthRut(yearMonth, rut);
+        if(marks.isEmpty())
+        {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(marks);
+    }
+
     @PostMapping
     public ResponseEntity<Mark> createMark(@RequestBody Mark mark)
     {

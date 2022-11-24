@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -27,6 +28,24 @@ public class MarkService {
         return markRepository.findById(id).orElse(null);
     }
 
+    public List<Mark> getMarkByYearMonthRut(String yearMonth, String rut) {
+        List<Mark> marks = markRepository.findAll();
+        List<Mark> marksByYearMonthRut = new ArrayList<Mark>();
+
+        //formato de yearMonth: YYYY-MM
+        String year = yearMonth.substring(0, 4);
+        String month = yearMonth.substring(5, 7);
+
+        for (Mark mark : marks) {
+            String markYear = mark.getDate().substring(0, 4);
+            String markMonth = mark.getDate().substring(5, 7);
+            if (markYear.equals(year) && markMonth.equals(month) && mark.getRut().equals(rut)) {
+                marksByYearMonthRut.add(mark);
+            }
+        }
+        return marksByYearMonthRut;
+
+    }
 
     public Mark createMark(Mark mark) {
 

@@ -17,4 +17,5 @@ public class Justification {
     private String category;
 
     private Date createdAt;
+
 }
