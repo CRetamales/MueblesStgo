@@ -46,8 +46,12 @@ eureka:
       defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
 
 #Feign
-Feign:
+feign:
   hystrix:
+    enabled: true
+  ribbon:
+    enabled: true
+  circuitBreaker:
     enabled: true
 management:
   endpoints:
