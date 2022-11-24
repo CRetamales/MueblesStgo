@@ -27,6 +27,18 @@ public class ReportController {
         return ResponseEntity.ok(reports);
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<Report>> listAllEmployee()
+    {
+        List<Report> reports = reportService.listAllR();
+        if(reports.isEmpty())
+        {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(reports);
+
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Report> getReport(@PathVariable("id") Long id)
     {

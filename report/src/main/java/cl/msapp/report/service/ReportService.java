@@ -34,6 +34,10 @@ public class ReportService {
     @Autowired
     MarkClient markClient;
 
+    public List<Report> listAllR() {
+        return reportRepository.findAll();
+    }
+
     public List<Report> listAllReports() {
         reportRepository.deleteAll();
         //Por cada empleado, se genera un reporte
